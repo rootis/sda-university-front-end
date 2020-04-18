@@ -8,6 +8,7 @@ import { University } from '../../types';
 })
 export class UniversityListComponent implements OnInit {
 
+  displayedColumns: string[] = ['title', 'numberOfStudyPrograms'];
   universities: University[] = [];
 
   constructor() { }
