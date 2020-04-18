@@ -8,7 +8,7 @@ import { University } from '../../types';
 })
 export class UniversityListComponent implements OnInit {
 
-  displayedColumns: string[] = ['title', 'numberOfStudyPrograms'];
+  displayedColumns: string[] = ['position', 'title', 'numberOfStudyPrograms', 'numberOfModules', 'actions'];
   universities: University[] = [];
 
   constructor() { }
@@ -20,11 +20,13 @@ export class UniversityListComponent implements OnInit {
   private load() {
     this.universities = [
       {
+        id: 1,
         title: 'KTU',
         numberOfStudyProgrms: 37,
         numberOfModules: 48
       },
       {
+        id: 2,
         title: 'VGTU',
         numberOfStudyProgrms: 31,
         numberOfModules: 44
