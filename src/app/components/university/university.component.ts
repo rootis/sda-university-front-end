@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { University } from '../../types';
 import { ActivatedRoute } from '@angular/router';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-university',
@@ -9,12 +10,16 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UniversityComponent implements OnInit {
 
-  id: string;
+  university: University;
 
-  constructor(route: ActivatedRoute) {
-    this.id = route.snapshot.paramMap.get('id');
+  constructor(
+    private api: ApiService,
+    private route: ActivatedRoute
+  ) {
   }
 
   ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.api.get('/universities/' + id).subscribe((data: University) => this.university = data);
   }
 }

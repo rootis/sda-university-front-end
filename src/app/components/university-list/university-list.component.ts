@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { University } from '../../types';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-university-list',
@@ -11,7 +12,7 @@ export class UniversityListComponent implements OnInit {
   displayedColumns: string[] = ['position', 'title', 'numberOfStudyPrograms', 'numberOfModules', 'actions'];
   universities: University[] = [];
 
-  constructor() { }
+  constructor(private api: ApiService) { }
 
   ngOnInit(): void {
     this.load();
@@ -22,31 +23,6 @@ export class UniversityListComponent implements OnInit {
   }
 
   private load() {
-    this.universities = [
-      {
-        id: 1,
-        title: 'KTU',
-        numberOfStudyProgrms: 37,
-        numberOfModules: 48
-      },
-      {
-        id: 2,
-        title: 'VGTU',
-        numberOfStudyProgrms: 31,
-        numberOfModules: 44
-      },
-      {
-        id: 3,
-        title: 'LSMU',
-        numberOfStudyProgrms: 31,
-        numberOfModules: 44
-      },
-      {
-        id: 4,
-        title: 'VDU',
-        numberOfStudyProgrms: 31,
-        numberOfModules: 44
-      }
-    ];
+    this.api.get('/universities').subscribe((data: University[]) => this.universities = data);
   }
 }

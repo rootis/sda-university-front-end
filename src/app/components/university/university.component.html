@@ -1,1 +1,9 @@
-<span>University: {{id}}</span>
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>{{university?.title}}</mat-card-title>
+    <mat-card-subtitle>{{university?.numberOfModules}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <span>Study programs: {{university?.numberOfStudyProgrms}}</span>
+  </mat-card-content>
+</mat-card>
