@@ -1,0 +1,4 @@
+<h3 [ngClass]="university.numberOfModules > 45 && 'red'">{{university.title}}</h3>
+<h4>Study programs: {{university.numberOfStudyProgrms}}</h4>
+<h4>Modules: {{university.numberOfModules}}</h4>
+<span class="red" *ngIf="university.numberOfModules > 45">Amazing!</span>

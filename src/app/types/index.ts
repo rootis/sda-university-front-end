@@ -1,0 +1,1 @@
+export { University } from './types';
