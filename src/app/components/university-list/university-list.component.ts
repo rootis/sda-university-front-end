@@ -17,6 +17,10 @@ export class UniversityListComponent implements OnInit {
     this.load();
   }
 
+  delete(id: number) {
+    this.universities = this.universities.filter(item => item.id !== id);
+  }
+
   private load() {
     this.universities = [
       {
@@ -28,6 +32,18 @@ export class UniversityListComponent implements OnInit {
       {
         id: 2,
         title: 'VGTU',
+        numberOfStudyProgrms: 31,
+        numberOfModules: 44
+      },
+      {
+        id: 3,
+        title: 'LSMU',
+        numberOfStudyProgrms: 31,
+        numberOfModules: 44
+      },
+      {
+        id: 4,
+        title: 'VDU',
         numberOfStudyProgrms: 31,
         numberOfModules: 44
       }
