@@ -13,10 +13,11 @@ table th:first-child {
   width: 50px;
 }
 
-table th:last-child, table tr td {
-  padding-right: 0 !important;
+table th:last-child, table tr td:last-child {
+  padding-right: 8px;
+  width: 10px;
 }
 
-table th:last-child {
-  width: 10px;
+.mat-row:hover {
+  background-color: lightgrey;
 }

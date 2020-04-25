@@ -14,13 +14,21 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
+import { UniversityModalComponent } from './components/university-modal/university-modal.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UniversityListComponent,
     UniversityComponent,
-    StudyProgramListComponent
+    StudyProgramListComponent,
+    UniversityModalComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -29,10 +37,15 @@ import { MatCardModule } from '@angular/material/card';
     HttpClientModule,
     MatToolbarModule,
     MatButtonModule,
+    MatDialogModule,
     MatTableModule,
     MatMenuModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatInputModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
