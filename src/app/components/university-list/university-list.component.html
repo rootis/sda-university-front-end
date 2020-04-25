@@ -22,7 +22,11 @@
   </ng-container>
 
   <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef></th>
+    <th mat-header-cell *matHeaderCellDef>
+      <button mat-mini-fab color="primary" aria-label="Add university icon">
+        <mat-icon>add</mat-icon>
+      </button>
+    </th>
     <td mat-cell *matCellDef="let element">
       <button mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon>more_vert</mat-icon>

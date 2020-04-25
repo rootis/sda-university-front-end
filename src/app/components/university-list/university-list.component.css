@@ -14,7 +14,7 @@ table th:first-child {
 }
 
 table th:last-child, table tr td {
-  padding-right: 0 !important;
+  padding-right: 8px;
 }
 
 table th:last-child {
