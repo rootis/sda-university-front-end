@@ -20,3 +20,7 @@ table th:last-child, table tr td {
 table th:last-child {
   width: 10px;
 }
+
+.mat-row:hover {
+  background-color: lightgrey;
+}
