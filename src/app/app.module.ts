@@ -16,6 +16,8 @@ import { UniversityListComponent } from './components/university-list/university
 import { UniversityComponent } from './components/university/university.component';
 import { StudyProgramListComponent } from './components/study-program-list/study-program-list.component';
 import { UniversityModalComponent } from './components/university-modal/university-modal.component';
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { UniversityModalComponent } from './components/university-modal/universi
     MatMenuModule,
     MatDialogModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatInputModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
