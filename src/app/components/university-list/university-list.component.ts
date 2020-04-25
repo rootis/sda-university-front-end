@@ -26,9 +26,17 @@ export class UniversityListComponent implements OnInit {
   }
 
   openDialog(university?: University) {
-    this.dialog.open(UniversityModalComponent, {
+    const dialogRef = this.dialog.open(UniversityModalComponent, {
       width: '250px',
       data: university || {}
+    });
+
+    dialogRef.afterClosed().subscribe((data: University) => {
+      if (data) {
+        this.api.post('/universities', data).subscribe(
+          (result: University) => this.universities = [...this.universities, result]
+        );
+      }
     });
   }
 

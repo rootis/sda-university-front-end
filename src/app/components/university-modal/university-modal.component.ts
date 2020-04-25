@@ -35,7 +35,7 @@ export class UniversityModalComponent implements OnInit {
   }
 
   save() {
-    console.log(this.form.getRawValue());
+    this.dialogRef.close(this.form.getRawValue());
   }
 
   get title() {
