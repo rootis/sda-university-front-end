@@ -22,7 +22,9 @@ export class UniversityListComponent implements OnInit {
   }
 
   delete(id: number) {
-    this.universities = this.universities.filter(item => item.id !== id);
+    this.api.delete('/universities/' + id).subscribe(
+      () => this.universities = this.universities.filter(item => item.id !== id)
+    );
   }
 
   openDialog(university?: University) {

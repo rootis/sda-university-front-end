@@ -1,0 +1,21 @@
+<form [formGroup]="form" class="login-form">
+  <mat-form-field>
+    <mat-label>Username</mat-label>
+    <input
+      matInput
+      required
+      autocomplete="off"
+      formControlName="username"
+    />
+    <mat-error *ngIf="username.errors?.minlength">
+      At least 3 characters are required
+    </mat-error>
+    <mat-error *ngIf="username.errors?.required">
+      Title is required
+    </mat-error>
+  </mat-form-field>
+  <div>
+    <button mat-raised-button>Reset</button>
+    <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="login()">Login</button>
+  </div>
+</form>
