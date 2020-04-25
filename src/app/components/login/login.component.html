@@ -1,19 +1,39 @@
 <form [formGroup]="form" class="login-form">
-  <mat-form-field>
-    <mat-label>Username</mat-label>
-    <input
-      matInput
-      required
-      autocomplete="off"
-      formControlName="username"
-    />
-    <mat-error *ngIf="username.errors?.minlength">
-      At least 3 characters are required
-    </mat-error>
-    <mat-error *ngIf="username.errors?.required">
-      Title is required
-    </mat-error>
-  </mat-form-field>
+  <div>
+    <mat-form-field>
+      <mat-label>Username</mat-label>
+      <input
+        matInput
+        required
+        autocomplete="off"
+        formControlName="username"
+      />
+      <mat-error *ngIf="username.errors?.minlength">
+        At least 3 characters are required
+      </mat-error>
+      <mat-error *ngIf="username.errors?.required">
+        Username is required
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        required
+        autocomplete="off"
+        formControlName="password"
+        type="password"
+      />
+      <mat-error *ngIf="username.errors?.minlength">
+        At least 6 characters are required
+      </mat-error>
+      <mat-error *ngIf="username.errors?.required">
+        Password is required
+      </mat-error>
+    </mat-form-field>
+  </div>
   <div>
     <button mat-raised-button>Reset</button>
     <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="login()">Login</button>
