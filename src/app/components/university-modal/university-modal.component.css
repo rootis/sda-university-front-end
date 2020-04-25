@@ -10,3 +10,7 @@ button {
   justify-content: center;
   margin: auto;
 }
+
+mat-form-field {
+  margin-bottom: 15px;
+}

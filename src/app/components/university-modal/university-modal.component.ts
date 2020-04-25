@@ -23,6 +23,9 @@ export class UniversityModalComponent implements OnInit {
       title: new FormControl(this.data.title, [
         Validators.required,
         Validators.minLength(2)
+      ]),
+      name: new FormControl(this.data.name, [
+        Validators.required
       ])
     });
   }
@@ -37,5 +40,9 @@ export class UniversityModalComponent implements OnInit {
 
   get title() {
     return this.form.get('title');
+  }
+
+  get name() {
+    return this.form.get('name');
   }
 }

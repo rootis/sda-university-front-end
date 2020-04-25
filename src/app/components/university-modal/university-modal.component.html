@@ -16,6 +16,18 @@
       Title is required
     </mat-error>
   </mat-form-field>
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input
+      matInput
+      required
+      autocomplete="off"
+      formControlName="name"
+    />
+    <mat-error *ngIf="name.errors?.required">
+      Name is required
+    </mat-error>
+  </mat-form-field>
 </form>
 
 <div mat-dialog-actions>
