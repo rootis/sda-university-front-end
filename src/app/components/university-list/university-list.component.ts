@@ -32,7 +32,11 @@ export class UniversityListComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((data: University) => {
-      if (data) {
+      if (data && data.id) {
+        this.api.put(`/universities/${data.id}`, data).subscribe(
+          (result: University) => this.universities = this.universities.map(u => u.id === result.id ? result : u)
+        );
+      } else if (data) {
         this.api.post('/universities', data).subscribe(
           (result: University) => this.universities = [...this.universities, result]
         );

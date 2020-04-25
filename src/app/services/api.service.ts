@@ -18,6 +18,10 @@ export class ApiService {
     return this.http.post(this.urlPrefix + url, data, this.getRequestOptions());
   }
 
+  put(url: string, data: object) {
+    return this.http.put(this.urlPrefix + url, data, this.getRequestOptions());
+  }
+
   delete(url: string) {
     return this.http.delete(`${this.urlPrefix}${url}`);
   }
