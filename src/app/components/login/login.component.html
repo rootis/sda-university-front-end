@@ -26,16 +26,16 @@
         formControlName="password"
         type="password"
       />
-      <mat-error *ngIf="username.errors?.minlength">
+      <mat-error *ngIf="password.errors?.minlength">
         At least 6 characters are required
       </mat-error>
-      <mat-error *ngIf="username.errors?.required">
+      <mat-error *ngIf="password.errors?.required">
         Password is required
       </mat-error>
     </mat-form-field>
   </div>
   <div>
-    <button mat-raised-button>Reset</button>
+    <button mat-raised-button (click)="form.reset({})">Reset</button>
     <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="login()">Login</button>
   </div>
 </form>

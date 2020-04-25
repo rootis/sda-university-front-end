@@ -4,5 +4,9 @@
 }
 
 div > button {
-  margin: 12px 6px 6px 6px;
+  margin: 6px;
+}
+
+div {
+  margin: 12px;
 }
