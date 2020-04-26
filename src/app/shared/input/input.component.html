@@ -1,0 +1,24 @@
+<mat-form-field>
+  <mat-label>{{ title }}</mat-label>
+  <input
+    *ngIf="!required"
+    matInput
+    autocomplete="off"
+    formControlName="{{ controlName }}"
+    type="{{ type || 'text'}}"
+  />
+  <input
+    *ngIf="required"
+    matInput
+    required
+    autocomplete="off"
+    formControlName="{{ controlName }}"
+    type="{{ type || 'text'}}"
+  />
+  <mat-error *ngIf="minlength && field.errors?.minlength">
+    At least {{ minlength }} characters are required
+  </mat-error>
+  <mat-error *ngIf="required && field.errors?.required">
+    {{ title }} is required
+  </mat-error>
+</mat-form-field>

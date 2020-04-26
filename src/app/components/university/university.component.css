@@ -1,3 +1,18 @@
-.red {
-  color: red;
+h3 {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.content {
+  margin: auto;
+  max-width: 1024px;
+  width: 100%;
+}
+
+.input-record {
+  margin-right: 12px;
+}
+
+.input-record > mat-form-field {
+  width: 100%;
 }

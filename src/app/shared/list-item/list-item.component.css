@@ -1,0 +1,19 @@
+.with-cursor {
+  cursor: pointer;
+}
+
+div {
+  border-top: 1px solid lightgray;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 12px;
+  padding-left: 12px;
+}
+
+span {
+  margin-top: 12px;
+}
+
+div:hover, .selected {
+  background-color: lightgray;
+}

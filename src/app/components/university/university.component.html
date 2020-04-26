@@ -1,9 +1,55 @@
-<mat-card class="example-card">
-  <mat-card-header>
-    <mat-card-title>{{university?.title}}</mat-card-title>
-    <mat-card-subtitle>{{university?.numberOfModules}}</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-    <span>Study programs: {{university?.numberOfStudyProgrms}}</span>
-  </mat-card-content>
-</mat-card>
+<h3 class="mat-h1">{{ university?.title }} - {{ university?.name }}</h3>
+
+<div class="content">
+  <app-panel [content]="detailsTpl">
+    <ng-template #detailsTpl>
+      <h4 class="mat-h2">Number of study programs: {{ university?.studyPrograms?.length }}</h4>
+      <h4 class="mat-h2">Number of modules: {{ university?.modules?.length }}</h4>
+    </ng-template>
+  </app-panel>
+
+  <app-panel [left]="studyProgramsTpl" [right]="modulesTpl">
+    <ng-template #studyProgramsTpl>
+      <div>
+        <button mat-icon-button class="button-add" (click)="switchAddStudyProgram()">
+          <mat-icon>add</mat-icon>
+        </button>
+        <span class="mat-h4">Study Programs</span>
+      </div>
+      <div class="input-record" *ngIf="isAddingStudyProgram">
+        <mat-form-field>
+          <input
+            matInput
+            autocomplete="off"
+            placeholder="Title"
+            [(ngModel)]="newStudyProgramTitle"
+            (keyup.enter)="addStudyProgram()"
+          />
+        </mat-form-field>
+      </div>
+      <app-list-item
+        *ngFor="let studyProgram of university?.studyPrograms"
+        [id]="studyProgram.id"
+        [isSelectable]="true"
+        [isSelected]="studyProgram.id === selectedStudyProgramId"
+        [title]="studyProgram.title"
+        (removeItem)="removeStudyProgram($event)"
+        (selectItem)="selectStudyProgram($event)"
+      ></app-list-item>
+    </ng-template>
+
+    <ng-template #modulesTpl>
+      <div>
+        <button mat-icon-button>
+          <mat-icon>add</mat-icon>
+        </button>
+        <span class="mat-h4">Modules</span>
+      </div>
+      <app-list-item
+        *ngFor="let module of modules"
+        [id]="module.id"
+        [title]="module.title"
+      ></app-list-item>
+    </ng-template>
+  </app-panel>
+</div>

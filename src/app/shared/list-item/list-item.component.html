@@ -1,0 +1,9 @@
+<div
+  (click)="onClick()"
+  [ngClass]="{'selected': isSelected, 'with-cursor': isSelectable}"
+>
+  <span>{{ title }}</span>
+  <button mat-icon-button class="button-add" (click)="remove()">
+    <mat-icon>clear</mat-icon>
+  </button>
+</div>

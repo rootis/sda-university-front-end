@@ -40,7 +40,7 @@ export class UniversityListComponent implements OnInit {
         this.api.put(`/universities/${data.id}`, data).subscribe(
     (result: University) => this.universities = this.universities.map(u => u.id === result.id ? result : u)
         );
-      } else {
+      } else if (data && data.title) {
         this.api.post('/universities', data).subscribe(
     (result: University) => this.universities = [...this.universities, result]
         );

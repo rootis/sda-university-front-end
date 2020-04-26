@@ -1,0 +1,16 @@
+.panel {
+  align-items: stretch;
+  display: flex;
+  margin-bottom: 25px;
+  width: 100%;
+}
+
+.left {
+  border-right: 1px solid lightgray;
+  min-width: 400px;
+}
+
+.right {
+  padding-left: 10px;
+  width: 100%;
+}
