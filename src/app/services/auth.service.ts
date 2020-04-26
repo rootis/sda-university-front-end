@@ -34,4 +34,9 @@ export class AuthService {
       });
     });
   }
+
+  logout() {
+    this.token = null;
+    sessionStorage.setItem(AuthService.key, null);
+  }
 }
