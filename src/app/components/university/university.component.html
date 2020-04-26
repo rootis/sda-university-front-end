@@ -1,1 +1,7 @@
-<h3 class="mat-h1">{{university?.title}} - {{university?.name}}</h3>
+<app-page-title>{{university?.title}} - {{university?.name}}</app-page-title>
+
+<div class="content">
+  <app-panel>
+    <h4 class="mat-h2">Number of study programs: {{ university?.studyPrograms?.length }}</h4>
+  </app-panel>
+</div>

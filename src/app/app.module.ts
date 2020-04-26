@@ -20,6 +20,7 @@ import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { PageTitleComponent } from './shared/page-title/page-title.component';
+import { PanelComponent } from './shared/panel/panel.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { PageTitleComponent } from './shared/page-title/page-title.component';
     UniversityModalComponent,
     LoginComponent,
     PageTitleComponent,
+    PanelComponent,
   ],
   imports: [
     BrowserModule,
