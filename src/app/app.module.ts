@@ -19,6 +19,7 @@ import { UniversityModalComponent } from './components/university-modal/universi
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
+import { PageTitleComponent } from './shared/page-title/page-title.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { LoginComponent } from './components/login/login.component';
     StudyProgramListComponent,
     UniversityModalComponent,
     LoginComponent,
+    PageTitleComponent,
   ],
   imports: [
     BrowserModule,
