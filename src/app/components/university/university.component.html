@@ -3,5 +3,16 @@
 <div class="content">
   <app-panel>
     <h4 class="mat-h2">Number of study programs: {{ university?.studyPrograms?.length }}</h4>
+    <h4 class="mat-h2">Number of modules: {{ university?.modules?.length }}</h4>
+  </app-panel>
+
+  <app-panel [left]="studyProgramsTpl" [right]="modulesTpl">
+    <ng-template #studyProgramsTpl>
+      <div>study programs</div>
+    </ng-template>
+
+    <ng-template #modulesTpl>
+      <div>modules</div>
+    </ng-template>
   </app-panel>
 </div>

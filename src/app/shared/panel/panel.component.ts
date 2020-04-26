@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, TemplateRef } from '@angular/core';
 
 @Component({
   selector: 'app-panel',
@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PanelComponent implements OnInit {
 
+  @Input() left: TemplateRef<any>;
+  @Input() right: TemplateRef<any>;
+
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }
