@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { University } from '../../types';
 import { ActivatedRoute } from '@angular/router';
+
+import { Module, University } from '../../types';
 import { ApiService } from '../../services/api.service';
 
 @Component({
@@ -11,6 +12,8 @@ import { ApiService } from '../../services/api.service';
 export class UniversityComponent implements OnInit {
 
   university: University;
+  selectedStudyProgramId: number;
+  selectedStudyProgramModules: Module[];
 
   constructor(
     private api: ApiService,
@@ -21,5 +24,15 @@ export class UniversityComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.api.get('/universities/' + id).subscribe((data: University) => this.university = data);
+  }
+
+  removeStudyProgram(id: number) {
+    this.university.studyPrograms = this.university.studyPrograms.filter(sp => sp.id !== id);
+  }
+
+  selectStudyProgram(id: number) {
+    this.selectedStudyProgramId = id;
+    const studyProgram = this.university.studyPrograms.find(sp => sp.id === id);
+    this.selectedStudyProgramModules = this.university.modules.filter(m => studyProgram.modules.includes(m.id));
   }
 }

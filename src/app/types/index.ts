@@ -1,1 +1,1 @@
-export { University } from './types';
+export { University, StudyProgram, Module } from './types';

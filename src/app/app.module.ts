@@ -21,6 +21,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { PageTitleComponent } from './shared/page-title/page-title.component';
 import { PanelComponent } from './shared/panel/panel.component';
+import { ListHeaderComponent } from './shared/list-header/list-header.component';
+import { ListItemComponent } from './shared/list-item/list-item.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { PanelComponent } from './shared/panel/panel.component';
     LoginComponent,
     PageTitleComponent,
     PanelComponent,
+    ListHeaderComponent,
+    ListItemComponent,
   ],
   imports: [
     BrowserModule,

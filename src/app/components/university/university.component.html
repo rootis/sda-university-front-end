@@ -8,11 +8,23 @@
 
   <app-panel [left]="studyProgramsTpl" [right]="modulesTpl">
     <ng-template #studyProgramsTpl>
-      <div>study programs</div>
+      <app-list-header title="Study Programs"></app-list-header>
+      <app-list-item
+        *ngFor="let studyProgram of university?.studyPrograms"
+        [id]="studyProgram.id"
+        [selected]="selectedStudyProgramId"
+        [title]="studyProgram.title"
+        (removeItem)="removeStudyProgram($event)"
+        (selectItem)="selectStudyProgram($event)"
+      ></app-list-item>
     </ng-template>
 
     <ng-template #modulesTpl>
-      <div>modules</div>
+      <app-list-header title="Modules"></app-list-header>
+      <app-list-item
+        *ngFor="let module of selectedStudyProgramModules"
+        [title]="module.title"
+      ></app-list-item>
     </ng-template>
   </app-panel>
 </div>
