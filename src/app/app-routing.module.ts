@@ -5,6 +5,7 @@ import { UniversityListComponent } from './components/university-list/university
 import { StudyProgramListComponent } from './components/study-program-list/study-program-list.component';
 import { UniversityComponent } from './components/university/university.component';
 import { LoginComponent } from './components/login/login.component';
+import { GuardService } from './services/guard.service';
 
 const routes: Routes = [
   {
@@ -19,6 +20,7 @@ const routes: Routes = [
     component: UniversityListComponent
   }, {
     path: 'universities/:id',
+    canActivate: [GuardService],
     component: UniversityComponent
   }, {
     path: 'study-programs',

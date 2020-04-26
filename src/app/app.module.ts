@@ -27,7 +27,7 @@ import { LoginComponent } from './components/login/login.component';
     UniversityComponent,
     StudyProgramListComponent,
     UniversityModalComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

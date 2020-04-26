@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +13,10 @@ export class LoginComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor() { }
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -25,15 +31,19 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  login() {
+    this.authService.login(this.form.getRawValue()).subscribe(() => {
+      if (this.authService.isLoggedIn()) {
+        this.router.navigateByUrl(this.authService.redirectUrl || '');
+      }
+    });
+  }
+
   get username() {
     return this.form.get('username');
   }
 
   get password() {
     return this.form.get('password');
-  }
-
-  login() {
-    console.log(this.form.getRawValue());
   }
 }
