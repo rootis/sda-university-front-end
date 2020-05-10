@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ApiService {
 
-  private readonly urlPrefix = 'http://127.0.0.1:3000';
+  private readonly urlPrefix = 'http://127.0.0.1:8080/api';
 
   constructor(private http: HttpClient) { }
 
