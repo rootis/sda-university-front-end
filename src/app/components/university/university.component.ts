@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Module, University } from '../../types';
 import { ApiService } from '../../services/api.service';
 
 @Component({

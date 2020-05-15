@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 import { ApiService } from '../../services/api.service';
-import { University } from '../../types';
 import { UniversityModalComponent } from '../university-modal/university-modal.component';
 
 @Component({
@@ -35,7 +34,7 @@ export class UniversityListComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((data: University) => {
       if (data && data.id) {
-        this.api.put(`/universities/${data.id}`, data).subscribe(
+        this.api.post(`/universities`, data).subscribe(
           (result: University) => this.universities = this.universities.map(u => u.id === result.id ? result : u)
         );
       } else if (data) {

@@ -1,19 +1,19 @@
-export interface StudyProgram {
+interface StudyProgram {
   id: number;
   title: string;
   modules: number[];
 }
 
-export interface Module {
+interface Module {
   id: number;
   title: string;
 }
 
-export interface University {
+interface University {
   id: number;
+  code: string;
   title: string;
-  name: string;
-  numberOfStudyProgrms: number;
+  numberOfStudyPrograms: number;
   numberOfModules: number;
   studyPrograms: StudyProgram[];
   modules: Module[];

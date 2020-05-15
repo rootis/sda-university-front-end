@@ -1,7 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
-import { University } from '../../types';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -20,11 +19,11 @@ export class UniversityModalComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      title: new FormControl(this.data.title, [
+      code: new FormControl(this.data.code, [
         Validators.required,
         Validators.minLength(2)
       ]),
-      name: new FormControl(this.data.name, [
+      title: new FormControl(this.data.title, [
         Validators.required
       ])
     });
@@ -38,11 +37,11 @@ export class UniversityModalComponent implements OnInit {
     this.dialogRef.close({...this.data, ...this.form.getRawValue()});
   }
 
-  get title() {
-    return this.form.get('title');
+  get code() {
+    return this.form.get('code');
   }
 
-  get name() {
-    return this.form.get('name');
+  get title() {
+    return this.form.get('title');
   }
 }
