@@ -2,18 +2,19 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ApiService } from './api.service';
 
+import { TOKEN_KEY } from '../common/Constants';
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private static readonly key = 'token';
   private token: string;
 
   redirectUrl: string;
 
   constructor(private api: ApiService) {
-    this.token = sessionStorage.getItem(AuthService.key);
+    this.token = sessionStorage.getItem(TOKEN_KEY);
   }
 
   isLoggedIn() {
@@ -26,7 +27,7 @@ export class AuthService {
         if (response?.token) {
           const { token } = response;
           this.token = token;
-          sessionStorage.setItem(AuthService.key, token);
+          sessionStorage.setItem(TOKEN_KEY, token);
           observer.next(true);
         } else {
           observer.next(false);
@@ -37,6 +38,6 @@ export class AuthService {
 
   logout() {
     this.token = null;
-    sessionStorage.setItem(AuthService.key, null);
+    sessionStorage.setItem(TOKEN_KEY, null);
   }
 }

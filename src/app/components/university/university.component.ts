@@ -22,7 +22,7 @@ export class UniversityComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.api.get('/universities/' + id).subscribe((data: University) => this.university = data);
+    this.api.get('/api/universities/' + id).subscribe((data: University) => this.university = data);
   }
 
   removeStudyProgram(id: number) {
