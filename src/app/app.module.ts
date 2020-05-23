@@ -1,12 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
-import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 
@@ -23,6 +23,7 @@ import { PageTitleComponent } from './shared/page-title/page-title.component';
 import { PanelComponent } from './shared/panel/panel.component';
 import { ListHeaderComponent } from './shared/list-header/list-header.component';
 import { ListItemComponent } from './shared/list-item/list-item.component';
+import { ServerErrorInterceptor } from './server-error.interceptor';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,9 @@ import { ListItemComponent } from './shared/list-item/list-item.component';
     MatInputModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: ServerErrorInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

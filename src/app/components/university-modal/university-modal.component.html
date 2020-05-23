@@ -1,6 +1,7 @@
 <h3 mat-dialog-title>University: {{ data.title }}</h3>
 
 <form [formGroup]="form" mat-dialog-content>
+  <span>{{ errorService.errors.code }}</span>
   <mat-form-field>
     <mat-label>Code</mat-label>
     <input
@@ -9,11 +10,8 @@
       autocomplete="off"
       formControlName="code"
     />
-    <mat-error *ngIf="code.errors?.minlength">
-      At least 2 characters are required
-    </mat-error>
-    <mat-error *ngIf="code.errors?.required">
-      Code is required
+    <mat-error>
+      {{ errorService.errors.code }}
     </mat-error>
   </mat-form-field>
   <mat-form-field>

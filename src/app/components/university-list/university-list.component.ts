@@ -34,16 +34,12 @@ export class UniversityListComponent implements OnInit {
       data: university || {}
     });
 
-    dialogRef.afterClosed().subscribe((data: University) => {
-      if (data && data.id) {
-        this.api.post(UniversityListComponent.URL, data).subscribe(
-          (result: University) => this.universities = this.universities.map(u => u.id === result.id ? result : u)
-        );
-      } else if (data) {
-        this.api.post(UniversityListComponent.URL, data).subscribe(
-          (result: University) => this.universities = [...this.universities, result]
-        );
-      }
+    dialogRef.afterClosed().subscribe((savedUniversity: University) => {
+      const existingIndex = this.universities.findIndex(u => u.id === savedUniversity.id);
+
+      this.universities = existingIndex ?
+        this.universities.map(u => u.id === savedUniversity.id ? savedUniversity : u) :
+        this.universities = [...this.universities, savedUniversity];
     });
   }
 
