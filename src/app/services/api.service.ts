@@ -25,7 +25,7 @@ export class ApiService {
   }
 
   delete(url: string) {
-    return this.http.delete(`${ApiService.URL_PREFIX}${url}`);
+    return this.http.delete(`${ApiService.URL_PREFIX}${url}`, this.getRequestOptions());
   }
 
   private getRequestOptions() {
