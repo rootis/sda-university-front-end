@@ -23,7 +23,7 @@ export class UniversityListComponent implements OnInit {
   }
 
   delete(id: number) {
-    this.api.delete(UniversityListComponent.URL + id).subscribe(
+    this.api.delete(UniversityListComponent.URL + '/' + id).subscribe(
       () => this.universities = this.universities.filter(item => item.id !== id)
     );
   }
