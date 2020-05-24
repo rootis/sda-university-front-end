@@ -11,6 +11,8 @@ import { UniversityModalComponent } from '../university-modal/university-modal.c
 })
 export class UniversityListComponent implements OnInit {
 
+  private static readonly URL = '/api/universities';
+
   displayedColumns: string[] = ['position', 'title', 'numberOfStudyPrograms', 'numberOfModules', 'actions'];
   universities: University[] = [];
 
@@ -21,7 +23,7 @@ export class UniversityListComponent implements OnInit {
   }
 
   delete(id: number) {
-    this.api.delete('/universities/' + id).subscribe(
+    this.api.delete(UniversityListComponent.URL + id).subscribe(
       () => this.universities = this.universities.filter(item => item.id !== id)
     );
   }
@@ -34,11 +36,11 @@ export class UniversityListComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((data: University) => {
       if (data && data.id) {
-        this.api.post(`/universities`, data).subscribe(
+        this.api.post(UniversityListComponent.URL, data).subscribe(
           (result: University) => this.universities = this.universities.map(u => u.id === result.id ? result : u)
         );
       } else if (data) {
-        this.api.post('/universities', data).subscribe(
+        this.api.post(UniversityListComponent.URL, data).subscribe(
           (result: University) => this.universities = [...this.universities, result]
         );
       }
@@ -46,6 +48,6 @@ export class UniversityListComponent implements OnInit {
   }
 
   private load() {
-    this.api.get('/universities').subscribe((data: University[]) => this.universities = data);
+    this.api.get(UniversityListComponent.URL).subscribe((data: University[]) => this.universities = data);
   }
 }

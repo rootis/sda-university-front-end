@@ -10,6 +10,8 @@ import { ApiService } from '../../services/api.service';
 })
 export class UniversityComponent implements OnInit {
 
+  private static readonly URL = '/api/universities/';
+
   university: University;
   selectedStudyProgramId: number;
   selectedStudyProgramModules: Module[];
@@ -22,7 +24,7 @@ export class UniversityComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.api.get('/universities/' + id).subscribe((data: University) => this.university = data);
+    this.api.get(UniversityComponent.URL + id).subscribe((data: University) => this.university = data);
   }
 
   removeStudyProgram(id: number) {
