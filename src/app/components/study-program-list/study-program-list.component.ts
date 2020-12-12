@@ -29,4 +29,7 @@ export class StudyProgramListComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  openDialog(): void {
+  }
 }

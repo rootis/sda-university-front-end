@@ -33,7 +33,5 @@ export class UniversityComponent implements OnInit {
 
   selectStudyProgram(id: number) {
     this.selectedStudyProgramId = id;
-    const studyProgram = this.university.studyPrograms.find(sp => sp.id === id);
-    this.selectedStudyProgramModules = this.university.modules.filter(m => studyProgram.modules.includes(m.id));
   }
 }
