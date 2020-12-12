@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-study-program-list',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudyProgramListComponent implements OnInit {
 
-  constructor() { }
+  displayedColumns: string[] = ['position', 'title', 'universityCode', 'numberOfModules', 'actions'];
+  studyPrograms: StudyProgram[] = [
+    {
+      id: 1,
+      title: 'Study Program 1',
+      universityCode: 'KTU',
+      modules: []
+    },
+    {
+      id: 2,
+      title: 'Spring',
+      universityCode: 'SDA',
+      modules: []
+    }
+  ];
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
-
 }

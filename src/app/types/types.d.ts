@@ -1,6 +1,7 @@
 interface StudyProgram {
   id: number;
   title: string;
+  universityCode: string;
   modules: number[];
 }
 
