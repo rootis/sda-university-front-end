@@ -2,7 +2,7 @@ interface StudyProgram {
   id: number;
   title: string;
   universityCode: string;
-  modules: number[];
+  modules: Module[];
 }
 
 interface Module {
@@ -15,7 +15,5 @@ interface University {
   code: string;
   title: string;
   numberOfStudyPrograms: number;
-  numberOfModules: number;
   studyPrograms: StudyProgram[];
-  modules: Module[];
 }

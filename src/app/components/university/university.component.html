@@ -3,7 +3,7 @@
 <div class="content">
   <app-panel>
     <h4 class="mat-h2">Number of study programs: {{ university?.studyPrograms?.length }}</h4>
-    <h4 class="mat-h2">Number of modules: {{ university?.modules?.length }}</h4>
+    <h4 class="mat-h2">Number of modules: {{ selectedStudyProgramModules?.length }}</h4>
   </app-panel>
 
   <app-panel [left]="studyProgramsTpl" [right]="modulesTpl">
