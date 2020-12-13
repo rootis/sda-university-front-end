@@ -16,8 +16,6 @@ export class UniversityListComponent implements OnInit {
   displayedColumns: string[] = ['position', 'title', 'numberOfStudyPrograms', 'numberOfModules', 'actions'];
   universities: University[] = [];
 
-  parentValue = 4;
-
   constructor(private api: ApiService, public dialog: MatDialog) { }
 
   ngOnInit(): void {

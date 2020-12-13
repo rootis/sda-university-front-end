@@ -23,7 +23,6 @@ import { PageTitleComponent } from './shared/page-title/page-title.component';
 import { PanelComponent } from './shared/panel/panel.component';
 import { ListHeaderComponent } from './shared/list-header/list-header.component';
 import { ListItemComponent } from './shared/list-item/list-item.component';
-import { SdaComponent } from './shared/sda/sda.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +36,6 @@ import { SdaComponent } from './shared/sda/sda.component';
     PanelComponent,
     ListHeaderComponent,
     ListItemComponent,
-    SdaComponent,
   ],
   imports: [
     BrowserModule,
