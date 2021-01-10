@@ -1,17 +1,17 @@
 <form [formGroup]="form" class="login-form">
   <div>
     <mat-form-field>
-      <mat-label>Username</mat-label>
+      <mat-label>Email</mat-label>
       <input
         matInput
         required
         autocomplete="off"
-        formControlName="username"
+        formControlName="email"
       />
-      <mat-error *ngIf="username.errors?.minlength">
+      <mat-error *ngIf="email.errors?.minlength">
         At least 3 characters are required
       </mat-error>
-      <mat-error *ngIf="username.errors?.required">
+      <mat-error *ngIf="email.errors?.required">
         Username is required
       </mat-error>
     </mat-form-field>

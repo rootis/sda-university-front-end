@@ -20,6 +20,7 @@ const routes: Routes = [
     component: UniversityListComponent
   }, {
     path: 'universities/:id',
+    canActivate: [GuardService],
     component: UniversityComponent
   }, {
     path: 'study-programs',

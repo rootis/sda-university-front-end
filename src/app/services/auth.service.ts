@@ -18,7 +18,6 @@ export class AuthService {
   }
 
   isLoggedIn() {
-    console.log(this.token);
     return !!this.token;
   }
 
