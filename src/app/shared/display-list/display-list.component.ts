@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-display-list',
@@ -8,10 +9,14 @@ import { Component, Input, OnInit } from '@angular/core';
 export class DisplayListComponent implements OnInit {
 
   @Input() url: string;
+  @Input() key: string;
 
-  constructor() { }
+  list;
+
+  constructor(private api: ApiService) { }
 
   ngOnInit(): void {
+    this.api.get(this.url).subscribe((data) => this.list = data);
   }
 
 }
