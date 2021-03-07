@@ -9,6 +9,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,8 +19,6 @@ import { UniversityListComponent } from './components/university-list/university
 import { UniversityComponent } from './components/university/university.component';
 import { StudyProgramListComponent } from './components/study-program-list/study-program-list.component';
 import { UniversityModalComponent } from './components/university-modal/university-modal.component';
-import { MatInputModule } from '@angular/material/input';
-import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { PageTitleComponent } from './shared/page-title/page-title.component';
 import { PanelComponent } from './shared/panel/panel.component';
@@ -50,6 +51,7 @@ import { ListItemComponent } from './shared/list-item/list-item.component';
     MatIconModule,
     MatCardModule,
     MatInputModule,
+    MatSnackBarModule,
     ReactiveFormsModule
   ],
   providers: [],
