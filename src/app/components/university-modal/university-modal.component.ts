@@ -1,7 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-university-modal',
@@ -10,9 +11,12 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class UniversityModalComponent implements OnInit {
 
+  private static readonly URL = '/api/universities';
+
   form: FormGroup;
 
   constructor(
+    private api: ApiService,
     private dialogRef: MatDialogRef<UniversityModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: University
   ) { }
@@ -34,7 +38,10 @@ export class UniversityModalComponent implements OnInit {
   }
 
   save() {
-    this.dialogRef.close({...this.data, ...this.form.getRawValue()});
+    this.api.post(UniversityModalComponent.URL, {...this.data, ...this.form.getRawValue()}).subscribe(
+      (result: University) => this.dialogRef.close(result),
+      err => this.api.setValidationResult(err, this.form)
+    );
   }
 
   get code() {

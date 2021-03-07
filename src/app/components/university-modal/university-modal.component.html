@@ -15,7 +15,11 @@
     <mat-error *ngIf="code.errors?.required">
       Code is required
     </mat-error>
+    <mat-error *ngIf="code.errors?.error">
+      {{code.errors.error}}
+    </mat-error>
   </mat-form-field>
+
   <mat-form-field>
     <mat-label>Title</mat-label>
     <input
@@ -26,6 +30,9 @@
     />
     <mat-error *ngIf="title.errors?.required">
       Title is required
+    </mat-error>
+    <mat-error *ngIf="title.errors?.error">
+      {{title.errors.error}}
     </mat-error>
   </mat-form-field>
 </form>
